@@ -10,23 +10,44 @@ box-sizing: border-box;
 
 /*----------------------Desktop-----------------------------*/
 
-.bg{
+/*.bg{
   background-image:url('https://i.ibb.co/vsYg8wk/Schermafbeelding-2020-02-29-om-20-37-06.png" alt="Schermafbeelding-2020-02-29-om-20-37-06');
   background-repeat: no-repeat;
   background-size:cover;
  height:49vh;
   opacity:0.5;
+}*/
+
+
+
+.background{
+   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.bg-image{
+  display: grid;
+    overflow: hidden;
+    height: 307px;
+   opacity:0.5;
+  overflow: hidden;
+}
+
+
+
+.bg-image img {
+    width: 100%;
+    display: inline-grid;
 }
 
 .ticket{
-   margin:10px;
- position:absolute;
-  top:0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
- align-items: center;
-  border: 1px solid black;
-  width: 98%;
+     margin: 10px;
+    position: absolute;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    border: 1px solid black;
+    width: 98.6%;
 }
 
 
