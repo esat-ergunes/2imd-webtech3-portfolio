@@ -1,1 +1,115 @@
-/*gridTicket Css*/
+
+
+*{
+box-sizing: border-box;
+  padding:0;
+  font-family:sans-serif; 
+  text-transform: uppercase;
+  margin:0;
+}
+
+/*----------------------Desktop-----------------------------*/
+
+.bg{
+  background-image:url('https://i.ibb.co/vsYg8wk/Schermafbeelding-2020-02-29-om-20-37-06.png" alt="Schermafbeelding-2020-02-29-om-20-37-06');
+  background-repeat: no-repeat;
+  background-size:cover;
+ height:49vh;
+  opacity:0.5;
+}
+
+.ticket{
+   margin:10px;
+ position:absolute;
+  top:0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+ align-items: center;
+  border: 1px solid black;
+  width: 98%;
+}
+
+
+.ticket .header{
+  background-color:transparent;
+  display:grid;
+  grid-template-rows: 1fr;
+  color:white;
+  text-align:center;
+  padding:45px 0px 52px;
+  border-right:1px solid black;
+
+}
+
+
+.ticket .header h1{
+  color:black;
+  font-size: 4em;
+  letter-spacing: 9px;
+  margin-bottom :5px;
+ width: 100%;
+  
+}
+
+.ticket .header p{
+ grid-row: 1 / 3;
+font-size:10px;
+letter-spacing: 7px;
+  margin-bottom:20px;
+  color:black;
+}
+
+.ticket > div{
+grid-column: 1/ span 2;
+
+}
+
+.ticket .qrCode{
+  color:yellow;
+  grid-column: 3/ span 3;
+  grid-row: 1/ span 3;
+  width: 100%;
+text-align:center;
+}
+
+
+
+.qrCode img{
+ width: 200px;
+}
+
+
+.ticket .footer{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+   grid-column: 1/ span 2;
+  
+  }
+
+
+.footer>p{
+  text-align:center;
+  width: 100%;
+  border:1px solid black;
+  font-weight:600;
+  padding:10px;
+  border-bottom:none;
+}
+
+.ticket .date,.ticket .info,.ticket .price,.ticket .description{
+  border-left:none;
+}
+
+
+.ticket .description{
+  display:block;
+  grid-column: 1/ span 3;
+  font-weight:100;
+  font-size:12px;
+}
+
+.ticket .footer span{
+  font-weight:100;
+}
+
+/*----------------------End-Desktop-----------------------------*/
