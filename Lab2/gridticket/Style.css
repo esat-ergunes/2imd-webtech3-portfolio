@@ -10,28 +10,17 @@ box-sizing: border-box;
 
 /*----------------------Desktop-----------------------------*/
 
-/*.bg{
-  background-image:url('https://i.ibb.co/vsYg8wk/Schermafbeelding-2020-02-29-om-20-37-06.png" alt="Schermafbeelding-2020-02-29-om-20-37-06');
-  background-repeat: no-repeat;
-  background-size:cover;
- height:49vh;
-  opacity:0.5;
-}*/
-
-
-
 .background{
    display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 .bg-image{
   display: grid;
-    overflow: hidden;
-    height: 307px;
-   opacity:0.5;
+  height: 307px;
+  opacity:0.5;
   overflow: hidden;
+  
 }
-
 
 
 .bg-image img {
@@ -134,3 +123,110 @@ grid-template-columns:repeat(3,1fr);
 }
 
 /*----------------------End-Desktop-----------------------------*/
+
+
+
+/*-------------------------Mobile-------------------------------*/
+
+@media(max-width: 639px){
+  
+  .bg-image {
+    display: grid;
+    height: 750px;
+    opacity: 0.5;
+    overflow: hidden;
+    background: red;
+    /* align-items: center; */
+    align-content: start;
+}
+  
+  .bg-image img{
+    
+    height: inherit;
+    width: auto;
+    
+  }
+  
+  
+  .ticket{
+  
+  margin:0;
+  padding:0;
+  border:none;
+  grid-template-columns: none;
+  width: 100%; 
+  display: grid;
+  height: 100%;
+  align-content: space-between;
+ 
+  }
+  
+  .ticket .header{
+  background-color:black;
+
+  text-align:center;
+  padding:20px;
+  width:100%;
+  
+}
+  
+  .ticket .header h1{
+    color: white;
+  font-size: 2.2em;
+  letter-spacing: 9px;
+  margin-bottom :20px;
+}
+  
+  .ticket .header p{
+font-size:10px;
+letter-spacing: 7px; 
+color :white;
+ grid-row: 2/ 3;
+}
+  
+  .ticket .qrCode{
+ text-align:center;
+ padding: 10% 0px 9% 0px;
+  grid-column: 1 / 3;
+  grid-row: none;
+}
+  
+   .ticket .qrCode img{
+  width: 50%;
+}
+  
+  .ticket .footer{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+
+  }
+  
+  
+   .ticket .footer > p{
+  text-align:center;
+  width: 100%;
+  border:1px solid black;
+  font-weight:600;
+  padding:10px;
+    
+}
+  
+   .ticket .footer .price{
+  grid-column: 1 / span 2;
+  border-top:none
+  
+}
+  
+   .ticket .footer .description{
+  display:none;
+}
+  
+  
+  .ticket .footer .date{
+    border-right:none;
+  } 
+  
+}
+
+
+/*------------------------End-Mobile-------------------------------*/
