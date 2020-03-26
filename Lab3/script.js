@@ -1,11 +1,21 @@
 class Note {
   constructor(title) {
     this.title = title;
-    // HINT🤩 this.element = this.createElement(title);
+    this.element = this.createElement(title);
+  
   }
   
   createElement(title){
-    let newNote = document.createElement('div');
+    let newNote = document.createElement('div');//creëert een div.
+    let NewP = document.createElement("p"); //creëert een p.
+    let NewLink = document.createElement("a");//creëert een a.
+    newNote.setAttribute("class", "card");//class toegevoegd aan div.
+    NewLink.setAttribute("class", "card-remove");//class toegevoegd aan a.
+    NewLink.setAttribute("href", "#");//href toegevoegd aan a.
+    NewLink.textContent = "remove";//tekstinhoud toegevoeg.
+    NewP.innerHTML = title;
+    newNote.appendChild(NewP);//NewP wordt toegevoegd in div met classes card.
+    newNote.appendChild(NewLink);
     
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
     
@@ -15,6 +25,7 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
+    document.querySelector('.notes').appendChild(this.element);
   }
   
   saveToStorage(){
@@ -49,10 +60,11 @@ class App {
    
   createNote(e){
     // this function should create a new note by using the Note() class
-    alert('Button is clicked');
-    
+    let text = document.querySelector('#txtAddNote').value;
+   //alert('Button is clicked');
+    let note = new Note(text);
     // HINT🤩
-    // note.add();
+    note.add();
     // note.saveToStorage();
     // this.reset();
   }
