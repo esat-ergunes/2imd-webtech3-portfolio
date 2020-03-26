@@ -38,10 +38,28 @@ class Note {
     //console.log(this.title);
   }
   
-  remove(){
+  remove(e){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    this.remove();
+    //this.remove();
+     let currentNote = this;
+    currentNote.remove();
+    e.preventDefault();
+   
+    let task = this.querySelector("p").innerHTML;
+    let removeSavedNotes = JSON.parse(localStorage.getItem("to-dos"));
+    let indexOfSavedNotes = removeSavedNotes.indexOf(task);
+    // console.log(indexOfSavedNotes);
+    if (indexOfSavedNotes > -1) {
+      removeSavedNotes.splice(indexOfSavedNotes, 1);
+    }
+    localStorage.setItem("to-dos", JSON.stringify(removeSavedNotes));
+    console.log(indexOfSavedNotes);
+    
+    
+    
+    
+    
   } 
 }
 
