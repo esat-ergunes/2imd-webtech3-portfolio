@@ -2,33 +2,28 @@ class Note {
   constructor(title) {
     this.title = title;
     this.element = this.createElement(title);
-  
   }
-  
-  createElement(title){
-    let newNote = document.createElement('div');//creëert een div.
+  createElement(title) {
+    let newNote = document.createElement('div'); //creëert een div.
     let NewP = document.createElement("p"); //creëert een p.
-    let NewLink = document.createElement("a");//creëert een a.
-    newNote.setAttribute("class", "card");//class toegevoegd aan div.
-    NewLink.setAttribute("class", "card-remove");//class toegevoegd aan a.
-    NewLink.setAttribute("href", "#");//href toegevoegd aan a.
-    NewLink.textContent = "remove";//tekstinhoud toegevoeg.
+    let NewLink = document.createElement("a"); //creëert een a.
+    newNote.setAttribute("class", "card"); //class toegevoegd aan div.
+    NewLink.setAttribute("class", "card-remove"); //class toegevoegd aan a.
+    NewLink.setAttribute("href", "#"); //href toegevoegd aan a.
+    NewLink.textContent = "remove"; //tekstinhoud toegevoeg.
     NewP.innerHTML = title;
-    newNote.appendChild(NewP);//NewP wordt toegevoegd in div met classes card.
+    newNote.appendChild(NewP); //NewP wordt toegevoegd in div met classes card.
     newNote.appendChild(NewLink);
-    let removeBtn =NewLink;
+    let removeBtn = NewLink;
     removeBtn.addEventListener('click', this.remove.bind(newNote));
-    
     return newNote;
   }
-  
-  add(){
+  add() {
     // HINT🤩
     // this function should append the note to the screen somehow
     document.querySelector('.notes').appendChild(this.element);
   }
-  
-  saveToStorage(){
+  saveToStorage() {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
@@ -37,15 +32,13 @@ class Note {
     localStorage.setItem("to-dos", JSON.stringify(storeNotes));
     //console.log(this.title);
   }
-  
-  remove(e){
+  remove(e) {
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
     //this.remove();
-     let currentNote = this;
+    let currentNote = this;
     currentNote.remove();
     e.preventDefault();
-   
     let task = this.querySelector("p").innerHTML;
     let removeSavedNotes = JSON.parse(localStorage.getItem("to-dos"));
     let indexOfSavedNotes = removeSavedNotes.indexOf(task);
@@ -54,64 +47,56 @@ class Note {
       removeSavedNotes.splice(indexOfSavedNotes, 1);
     }
     localStorage.setItem("to-dos", JSON.stringify(removeSavedNotes));
-    console.log(indexOfSavedNotes);
-    
-    
-    
-    
-    
-  } 
+    //console.log(indexOfSavedNotes);
+  }
 }
-
 class App {
   constructor() {
     console.log("👊🏼 The Constructor!");
-  
     // HINT🤩
     // clicking the button should work
     this.btnAdd = document.querySelector('#btnAddNote');
-    this.btnAdd.addEventListener("click",this.createNote.bind(this));
+    this.btnAdd.addEventListener("click", this.createNote.bind(this));
     this.loadNotesFromStorage();
-     // pressing the enter key should also work
-     this.inputField = document.querySelector('#txtAddNote');
-      this.inputField.addEventListener('keydown',(e) => {
+    // pressing the enter key should also work
+    this.inputField = document.querySelector('#txtAddNote');
+    this.inputField.addEventListener('keydown', (e) => {
       if (e.keyCode == 13) {
         e.preventDefault();
         document.querySelector('#btnAddNote').click();
       }
     });
-    
-    
-    
   }
-  
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
     let savedNotes = JSON.parse(localStorage.getItem("to-dos")) || [];
-     savedNotes.forEach(savedNotes => {
+    savedNotes.forEach(savedNotes => {
       let note = new Note(savedNotes);
       note.add();
     });
-
   }
-   
-  createNote(e){
+  createNote(e) {
     // this function should create a new note by using the Note() class
     let text = document.querySelector('#txtAddNote').value;
-   //alert('Button is clicked');
-    let note = new Note(text);
+    //alert('Button is clicked');
     // HINT🤩
-    note.add();
-  note.saveToStorage();
-    // this.reset();
+    if (text === "") {
+      console.log("leeg");
+      document.querySelector(".error").style = "color:red; font-size:13px; opcity:1;";
+    }
+    else {
+      document.querySelector(".error").style = "opacity:0;";
+      let note = new Note(text);
+      note.add();
+      note.saveToStorage();
+      this.reset();
+    }
   }
-  
-  reset(){
+  reset() {
     // this function should reset the form 
+    document.querySelector('form').reset();
   }
-  
 }
-
 let app = new App();
