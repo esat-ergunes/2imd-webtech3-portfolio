@@ -1,3 +1,3 @@
 ## Link to codepen
 
-[GIT](https://codepen.io/esatergunes/pen/OJVwWRe)
+[Link to codepen Lab4](https://codepen.io/esatergunes/pen/OJVwWRe)
