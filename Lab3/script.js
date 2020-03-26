@@ -16,8 +16,8 @@ class Note {
     NewP.innerHTML = title;
     newNote.appendChild(NewP);//NewP wordt toegevoegd in div met classes card.
     newNote.appendChild(NewLink);
-    
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    let removeBtn =NewLink;
+    removeBtn.addEventListener('click', this.remove.bind(newNote));
     
     return newNote;
   }
@@ -37,6 +37,7 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    this.remove();
   } 
 }
 
