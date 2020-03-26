@@ -36,8 +36,8 @@ class App {
     // HINT🤩
     // clicking the button should work
     // pressing the enter key should also work
-    // this.btnAdd = ???
-    // this.btnAdd.addEventListener("click", this.createNote.bind(this));
+    this.btnAdd = document.querySelector('#btnAddNote');
+    this.btnAdd.addEventListener("click",this.createNote.bind(this));
     // this.loadNotesFromStorage();
   }
   
@@ -49,6 +49,7 @@ class App {
    
   createNote(e){
     // this function should create a new note by using the Note() class
+    alert('Button is clicked');
     
     // HINT🤩
     // note.add();
