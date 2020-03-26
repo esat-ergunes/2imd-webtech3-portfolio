@@ -54,13 +54,19 @@ class App {
     // pressing the enter key should also work
     this.btnAdd = document.querySelector('#btnAddNote');
     this.btnAdd.addEventListener("click",this.createNote.bind(this));
-    // this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    let savedNotes = JSON.parse(localStorage.getItem("to-dos")) || [];
+     savedNotes.forEach(savedNotes => {
+      let note = new Note(savedNotes);
+      note.add();
+    });
+
   }
    
   createNote(e){
